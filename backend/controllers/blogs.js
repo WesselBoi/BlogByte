@@ -1,11 +1,14 @@
-const mongoose = require('mongoose');
+const {getUser} = require("../service/auth")
 const BLOG = require("../models/blogs")
 
 
 
 async function handleViewBlogs(req,res){
+    const sessionId = req.cookies?.uid;
+    const user = getUser(sessionId);
+
     try{
-        const blogs = await BLOG.find({})
+        const blogs = await BLOG.find({createdBy: user._id})
         if(!blogs || blogs.length === 0){
             return res.status(404).json({msg : "No blogs found"})
         }
@@ -21,13 +24,24 @@ async function handleViewBlogs(req,res){
 async function handleAddBlog(req,res) {
     const {subject , content} = req.body;
 
+    const sessionId = req.cookies?.uid;
+    const user = getUser(sessionId);
+
+
     if(!subject || !content){
         return res.status(400).json({msg : "Please provide both subject and content"})
     }
+
+    // Make sure user is logged in
+    if (!user) {
+        return res.status(401).json({ msg: "Unauthorized. Please log in." });
+    }
+    
     try{
         const blog = await BLOG.create({
             subject : subject,
-            content : content
+            content : content,
+            createdBy: user._id,
         })
         return res.json({msg : "Blog added successfully"})
     } catch(err){

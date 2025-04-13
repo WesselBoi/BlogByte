@@ -23,7 +23,8 @@ function Signup() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify({ name, email, password }),
+        credentials: "include",   
       });
       
       const data = await response.json();
@@ -33,9 +34,8 @@ function Signup() {
         return;
       }
       
-      // Optional: Show success message before redirecting
       setError(''); // Clear any previous errors
-      alert('Account created successfully!'); // or use a better notification system
+      alert('Account created successfully!'); 
       
       navigate('/login'); 
     } catch (err) {
@@ -47,7 +47,7 @@ function Signup() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
-        <h2 className="text-3xl font-bold text-center text-indigo-700 mb-6">Login to Blog Innit</h2>
+        <h2 className="text-3xl font-bold text-center text-indigo-700 mb-6">Sign Up to Blog Innit</h2>
 
         <form onSubmit={handleSignup} className="space-y-4">
           <div>
@@ -92,7 +92,7 @@ function Signup() {
             type="submit"
             className="w-full bg-indigo-600 text-white font-medium py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors cursor-pointer"
           >
-            Login
+            Sign Up
           </button>
         </form>
 

@@ -16,7 +16,8 @@ function Login() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
+        credentials: "include",         //necessary to include as browser will NOT send cookies unless you explicitly tell it to using this line
       });
       
       if (!response.ok) {

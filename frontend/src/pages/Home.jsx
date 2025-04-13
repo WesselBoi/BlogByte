@@ -19,7 +19,9 @@ function Home() {
   
     async function fetchBlogs() {
       try {
-        const response = await fetch('http://localhost:8000/blogs');
+        const response = await fetch('http://localhost:8000/blogs', {
+          credentials: "include",   
+        });
         const data = await response.json();
         if (response.ok) {
           setBlogs([...data]);
@@ -44,6 +46,7 @@ function Home() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(newBlog),
+          credentials: "include",   
         });
   
         if (!response.ok) {
@@ -65,7 +68,8 @@ function Home() {
           method : "DELETE",
           headers :{
             'Content-Type': 'application/json',
-          }
+          },
+          credentials: "include",   
         })
         if(!response.ok){
           throw new Error("Failed to delete blog")
@@ -102,6 +106,7 @@ function Home() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ updatedSubject: editedSubject }),
+          credentials: "include",   
         });
   
         if (!response.ok) {
@@ -130,6 +135,7 @@ function Home() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ updatedContent: editedContent }),
+          credentials: "include",   
         });
   
         if (!response.ok) {
@@ -198,7 +204,8 @@ function Home() {
             <h2 className="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Recent Blogs</h2>
             
             {blogs.length === 0 ? (
-              <p className="text-center text-gray-500 my-8">No blogs found. Add your first blog above!</p>
+              <p className="text-center text-gray-500 my-8">No blogs found. Add your first blog above! <br />
+              If you're not logged in, you won't see your exisiting vlogs!</p>
             ) : (
               <ul className="space-y-6">
                 {blogs.map((blog) => (

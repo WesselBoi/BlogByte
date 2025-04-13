@@ -1,4 +1,6 @@
+const {v4 : uuidv4} = require('uuid')
 const USER = require("../models/user")
+const {setUser} = require("../service/auth")
 
 async function handleUserSignUp(req, res) {
     try {
@@ -41,12 +43,15 @@ async function handleUserLogin(req, res) {
         }
         
         
-        // Instead of comparing plain text passwords:
-        const isPasswordValid = (user.password === password); // This should be replaced with hashed comparison
+        const isPasswordValid = (user.password === password);
         
         if (!isPasswordValid) {
             return res.status(401).json({ msg: "Invalid credentials" });
         }
+
+        const sessionId = uuidv4()      //generate unique session id for the user
+        setUser(sessionId,user)         //using setUser function to map the id to the user after login
+        res.cookie("uid" , sessionId)
 
         return res.status(200).json({ 
             msg: "Logged in successfully",
