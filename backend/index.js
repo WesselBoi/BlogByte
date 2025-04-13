@@ -4,6 +4,7 @@ const blogRoutes = require('./routes/blogs');
 const connectToMongoDb = require('./connection');
 
 const PORT = 8000
+require('dotenv').config();
 const mongoUrl = process.env.MONGO_URL;
 
 connectToMongoDb(mongoUrl)
