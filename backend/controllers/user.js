@@ -1,6 +1,6 @@
 const {v4 : uuidv4} = require('uuid')
 const USER = require("../models/user")
-const {setUser} = require("../service/auth")
+const {setUser , getUser} = require("../service/auth")
 
 async function handleUserSignUp(req, res) {
     try {
@@ -62,7 +62,32 @@ async function handleUserLogin(req, res) {
     }
 }
 
+function fetchProfile(req,res){
+    const sessionId = req.cookies?.uid
+    const user = getUser(sessionId)
+
+    if (!user) {
+        return res.status(401).json({ msg: "Unauthorized. Please log in." });
+    }
+
+    try {
+        return res.status(200).json({
+            msg: "User profile fetched successfully",
+            profile: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+            }
+        });
+    } catch (err) {
+        console.error("Error fetching profile:", err);
+        return res.status(500).json({ msg: "Internal server error" });
+    }
+
+}
+
 module.exports={
     handleUserSignUp,
     handleUserLogin,
+    fetchProfile,
 }
