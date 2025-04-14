@@ -12,7 +12,7 @@ function About() {
         </h1>
         <div className="h-1 w-20 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-6"></div>
         <p className="text-lg text-gray-600 max-w-lg mx-auto">
-          This is a simple CRUD blog app built with React and Express.
+          This is a CRUD blog app built with React and Express.
         </p>
       </div>
 
