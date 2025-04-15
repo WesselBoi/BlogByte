@@ -30,7 +30,6 @@ async function handleUserSignUp(req, res) {
     }
   }
 
-
 async function handleUserLogin(req, res) {
     try {
         const { email, password } = req.body;
@@ -49,9 +48,8 @@ async function handleUserLogin(req, res) {
             return res.status(401).json({ msg: "Invalid credentials" });
         }
 
-        const sessionId = uuidv4()      //generate unique session id for the user
-        setUser(sessionId,user)         //using setUser function to map the id to the user after login
-        res.cookie("uid" , sessionId)
+        const token = setUser(user)
+        res.cookie("uid" , token)
 
         return res.status(200).json({ 
             msg: "Logged in successfully",
@@ -61,6 +59,10 @@ async function handleUserLogin(req, res) {
         return res.status(500).json({ msg: "Server error" });
     }
 }
+
+
+
+
 
 function fetchProfile(req,res){
     const sessionId = req.cookies?.uid
