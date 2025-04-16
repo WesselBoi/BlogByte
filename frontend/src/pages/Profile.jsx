@@ -4,34 +4,72 @@ function Profile() {
   const [profileDetails, setProfileDetails] = useState({ name: "", email: "" });
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   async function fetchProfileDetails() {
+  //     try {
+  //       setLoading(true);
+  //       const response = await fetch("http://localhost:8000/user/profile", {
+  //         credentials: "include",
+  //       });
+
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setProfileDetails({
+  //           name: data.profile.name,
+  //           email: data.profile.email,
+  //         });
+  //       } else if (response.status === 401) {
+  //         setProfileDetails({ name: "Guest", email: "guest" });
+  //       } else {
+  //         setProfileDetails({ name: "Failed to fetch", email: `Error: ${response.status}` });
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching profile:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+
+  //   fetchProfileDetails();
+  // }, []);
+
   useEffect(() => {
     async function fetchProfileDetails() {
       try {
+        console.log("Fetching profile...");
         setLoading(true);
         const response = await fetch("http://localhost:8000/user/profile", {
           credentials: "include",
         });
-
+  
+        console.log("Response status:", response.status);
+  
         if (response.ok) {
           const data = await response.json();
+          console.log("Data received:", data);
+  
           setProfileDetails({
-            name: data.profile.name,
-            email: data.profile.email,
+            name: data.profile?.name || "Unnamed",
+            email: data.profile?.email || "unknown",
           });
         } else if (response.status === 401) {
+          console.log("Unauthorized user");
           setProfileDetails({ name: "Guest", email: "guest" });
         } else {
+          console.log("Other error:", response.status);
           setProfileDetails({ name: "Failed to fetch", email: `Error: ${response.status}` });
         }
       } catch (error) {
         console.error("Error fetching profile:", error);
       } finally {
         setLoading(false);
+        console.log("Loading set to false");
       }
     }
-
+  
     fetchProfileDetails();
   }, []);
+  
 
   return (
     <div className="py-12">
@@ -43,7 +81,7 @@ function Profile() {
               <div className="h-24 w-24 bg-white rounded-full p-1 shadow-lg">
                 <div className="h-full w-full bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center">
                   <span className="text-2xl font-bold text-white">
-                    {loading ? "..." : profileDetails.name.charAt(0).toUpperCase()}
+                  {loading || !profileDetails.name ? "..." : profileDetails.name.charAt(0).toUpperCase()}
                   </span>
                 </div>
               </div>
