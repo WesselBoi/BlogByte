@@ -5,6 +5,7 @@ import About from './pages/ABout';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
+import Admin from './pages/admin';
 
 function App() {
   const location = useLocation();
@@ -171,6 +172,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
     </div>
