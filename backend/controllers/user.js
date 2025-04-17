@@ -62,8 +62,6 @@ async function handleUserLogin(req, res) {
 
 
 
-
-
 function fetchProfile(req,res){
     const sessionId = req.cookies?.uid
     const user = getUser(sessionId)
@@ -88,8 +86,22 @@ function fetchProfile(req,res){
 
 }
 
+
+function handleUserLogout(req,res) {
+    try {
+        // Clear the JWT cookie
+        res.clearCookie('uid');
+        return res.status(200).json({ message: 'Logged out successfully' });
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+      }
+}
+
+
 module.exports={
     handleUserSignUp,
     handleUserLogin,
     fetchProfile,
+    handleUserLogout
 }
