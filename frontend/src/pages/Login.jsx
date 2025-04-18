@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate , Link} from 'react-router-dom';
 
-function Login() {
+function Login( {setIsLoggedIn} ) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,7 +25,8 @@ function Login() {
         setError(errorData.msg || 'Invalid credentials');
         return;
       }
-      
+      setIsLoggedIn(true)
+      localStorage.setItem('isLoggedIn', 'true');
       navigate('/');
     } catch (err) {
       setError('Login failed. Please try again.');
