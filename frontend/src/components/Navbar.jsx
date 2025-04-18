@@ -6,11 +6,11 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    // Persist login state across page refreshes
+  // Persist login state across page refreshes
   useEffect(() => {
-      const loggedInStatus = localStorage.getItem('isLoggedIn') === 'true';  // Get value from localStorage
-      setIsLoggedIn(loggedInStatus);
-    }, []);
+    const loggedInStatus = localStorage.getItem("isLoggedIn") === "true"; // Get value from localStorage
+    setIsLoggedIn(loggedInStatus);
+  }, []);
 
   async function handleLogout() {
     await fetch("http://localhost:8000/user/logout", {
@@ -18,7 +18,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
       credentials: "include",
     });
     setIsLoggedIn(false);
-    localStorage.setItem('isLoggedIn', 'false');
+    localStorage.setItem("isLoggedIn", "false");
     navigate("/login");
   }
 
@@ -186,18 +186,29 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               Profile
             </Link>
             <div className="pt-4 border-t border-gray-200">
-              <Link
-                to="/login"
-                className="block w-full px-4 py-2 mb-2 text-center rounded-md font-medium text-indigo-600 border border-indigo-200 hover:bg-indigo-50"
-              >
-                Login
-              </Link>
-              <Link
-                to="/signup"
-                className="block w-full px-4 py-2 text-center rounded-md font-medium bg-indigo-600 text-white hover:bg-indigo-700"
-              >
-                Sign Up
-              </Link>
+              {!isLoggedIn ? (
+                <>
+                  <Link
+                    to="/login"
+                    className="block w-full px-4 py-2 mb-2 text-center rounded-md font-medium text-indigo-600 border border-indigo-200 hover:bg-indigo-50"
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signup"
+                    className="block w-full px-4 py-2 text-center rounded-md font-medium bg-indigo-600 text-white hover:bg-indigo-700"
+                  >
+                    Sign Up
+                  </Link>
+                </>
+              ) : (
+                <button
+                  onClick={handleLogout}
+                  className="block w-full px-4 py-2 text-center rounded-md font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all"
+                >
+                  Logout
+                </button>
+              )}
             </div>
           </div>
         </div>
