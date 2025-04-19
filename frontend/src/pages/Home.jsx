@@ -71,7 +71,7 @@ function Home() {
         });
       await fetchBlogs();
     } catch (err) {
-      setError("Could not add blog, try again later");
+      setError("Login first to add blog");
       console.error("Error adding blog:", err);
     }
   }
@@ -176,12 +176,12 @@ function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#222831] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#222831] border border-[#FFD369] rounded-2xl py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10">
         <ToastContainer />
           <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FFD369] to-[#EEEEEE] mb-2 leading-tight">
-            Blog App
+            BlogByte
           </h1>
           <p className="text-[#EEEEEE] max-w-lg mx-auto">
             Share your thoughts, ideas, and stories with the world

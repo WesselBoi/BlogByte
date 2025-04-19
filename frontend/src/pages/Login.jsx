@@ -44,7 +44,7 @@ function Login( {setIsLoggedIn} ) {
             </svg>
           </div>
           <h2 className="text-3xl font-bold text-[#EEEEEE]">Welcome Back</h2>
-          <p className="text-[#FFD369] mt-1">Login to your Blog account</p>
+          <p className="text-[#FFD369] mt-1">Login to your BlogByte</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-5">

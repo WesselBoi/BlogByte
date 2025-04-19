@@ -59,7 +59,7 @@ function Signup() {
   }
 
   return (
-    <div className="min-h-fit flex items-center justify-center bg-[#ffffff07] border border-[#FFD369] rounded-2xl  px-4 py-20">
+    <div className="min-h-fit flex items-center justify-center bg-[#ffffff07] border border-[#FFD369] rounded-2xl  px-4 py-15">
       <ToastContainer />
       <div className="w-full max-w-md bg-[#292b2e] shadow-xl rounded-2xl p-8 border border-[#222831]">
         <div className="mb-8 text-center">
@@ -69,7 +69,7 @@ function Signup() {
             </svg>
           </div>
           <h2 className="text-3xl font-bold text-[#EEEEEE]">Create Account</h2>
-          <p className="text-[#FFD369] mt-1">Join our blog community today</p>
+          <p className="text-[#FFD369] mt-1">Join the BlogByte community today</p>
         </div>
 
         <form onSubmit={handleSignup} className="space-y-5">

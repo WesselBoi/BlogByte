@@ -8,7 +8,7 @@ function About() {
           About Us
         </span>
         <h1 className="text-4xl font-bold text-[#EEEEEE] mb-4">
-          About This Blog App
+          About BlogByte
         </h1>
         <div className="h-1 w-20 bg-gradient-to-r from-[#FFD369] to-[#e6be5f] mx-auto mb-6"></div>
         <p className="text-lg text-[#EEEEEE] max-w-lg mx-auto">
@@ -61,7 +61,7 @@ function About() {
       
       <div className="mt-10 text-center">
         <p className="text-[#EEEEEE] text-sm opacity-70">
-          &copy; {new Date().getFullYear()} Blog App | All rights reserved
+          &copy; {new Date().getFullYear()} BlogByte | All rights reserved
         </p>
       </div>
     </div>

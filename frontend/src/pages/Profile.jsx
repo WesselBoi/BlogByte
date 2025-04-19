@@ -7,17 +7,14 @@ function Profile() {
   useEffect(() => {
     async function fetchProfileDetails() {
       try {
-        console.log("Fetching profile...");
         setLoading(true);
         const response = await fetch("http://localhost:8000/user/profile", {
           credentials: "include",
         });
   
-        console.log("Response status:", response.status);
   
         if (response.ok) {
           const data = await response.json();
-          console.log("Data received:", data);
   
           setProfileDetails({
             name: data.profile?.name || "Unnamed",
@@ -34,7 +31,6 @@ function Profile() {
         console.error("Error fetching profile:", error);
       } finally {
         setLoading(false);
-        console.log("Loading set to false");
       }
     }
   
