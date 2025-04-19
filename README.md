@@ -1,4 +1,4 @@
-# Blog Application
+# BlogByte
 
 A full-stack blog application with React frontend and Express/MongoDB backend.
 
