@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
   const navigate = useNavigate();
@@ -35,9 +37,21 @@ function Signup() {
       }
       
       setError(''); // Clear any previous errors
-      alert('Account created successfully!'); 
+      toast.success('Account Created Successfully', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+        });
       
-      navigate('/login'); 
+      setTimeout(() => {
+        navigate('/login');
+      }, 5000); // Wait 2 seconds before navigating
     } catch (err) {
       setError('Signup failed. Please try again.');
       console.error('Signup error:', err);
@@ -46,6 +60,7 @@ function Signup() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-indigo-50 px-4">
+      <ToastContainer />
       <div className="w-full max-w-md bg-white shadow-xl rounded-2xl p-8 border border-indigo-100">
         <div className="mb-8 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-full mb-4">
