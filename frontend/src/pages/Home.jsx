@@ -176,21 +176,21 @@ function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#222831] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10">
         <ToastContainer />
-          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 mb-2 leading-tight">
+          <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FFD369] to-[#EEEEEE] mb-2 leading-tight">
             Blog App
           </h1>
-          <p className="text-gray-600 max-w-lg mx-auto">
+          <p className="text-[#EEEEEE] max-w-lg mx-auto">
             Share your thoughts, ideas, and stories with the world
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-10 border border-indigo-100 transform transition-all hover:shadow-2xl">
-          <h2 className="text-2xl font-bold text-indigo-700 mb-6 flex items-center">
-            <span className="bg-indigo-100 text-indigo-600 p-2 rounded-full mr-3">
+        <div className="bg-[#393E46] rounded-2xl shadow-xl p-8 mb-10 border border-[#4a545f] transform transition-all hover:shadow-2xl">
+          <h2 className="text-2xl font-bold text-[#FFD369] mb-6 flex items-center">
+            <span className="bg-[#222831] text-[#FFD369] p-2 rounded-full mr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -210,14 +210,14 @@ function Home() {
           <div className="mb-6">
             <label
               htmlFor="subject"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-[#EEEEEE] mb-1"
             >
               Subject
             </label>
             <input
               id="subject"
               type="text"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors shadow-sm"
+              className="w-full px-4 py-3 border border-[#222831] bg-[#2d333d] text-[#EEEEEE] rounded-lg focus:ring-2 focus:ring-[#FFD369] focus:border-[#FFD369] transition-colors shadow-sm"
               value={newBlog.subject}
               onChange={handleNewBlogSubjectChange}
               placeholder="What's your blog about?"
@@ -227,13 +227,13 @@ function Home() {
           <div className="mb-6">
             <label
               htmlFor="content"
-              className="block text-sm font-medium text-gray-700 mb-1"
+              className="block text-sm font-medium text-[#EEEEEE] mb-1"
             >
               Content
             </label>
             <textarea
               id="content"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors shadow-sm h-32"
+              className="w-full px-4 py-3 border border-[#222831] bg-[#2d333d] text-[#EEEEEE] rounded-lg focus:ring-2 focus:ring-[#FFD369] focus:border-[#FFD369] transition-colors shadow-sm h-32"
               value={newBlog.content}
               onChange={handleNewBlogContentChange}
               placeholder="Share your thoughts..."
@@ -241,7 +241,7 @@ function Home() {
           </div>
 
           <button
-            className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium py-3 px-4 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transform hover:scale-[1.01] shadow-md cursor-pointer"
+            className="w-full bg-[#FFD369] hover:bg-[#e6be5f] text-[#222831] font-medium py-3 px-4 rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FFD369] transform hover:scale-[1.01] shadow-md cursor-pointer"
             onClick={addBlog}
           >
             Publish Blog
@@ -249,13 +249,13 @@ function Home() {
 
           {error && (
             <div
-              className="mt-4 bg-red-50 border-l-4 border-red-500 text-red-700 p-4 rounded-md"
+              className="mt-4 bg-[#442323] border-l-4 border-red-500 text-red-300 p-4 rounded-md"
               role="alert"
             >
               <div className="flex">
                 <div className="flex-shrink-0">
                   <svg
-                    className="h-5 w-5 text-red-500"
+                    className="h-5 w-5 text-red-400"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -276,8 +276,8 @@ function Home() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b border-gray-200 flex items-center">
-            <span className="bg-indigo-100 text-indigo-600 p-2 rounded-full mr-3">
+          <h2 className="text-2xl font-bold text-[#EEEEEE] mb-6 pb-2 border-b border-[#393E46] flex items-center">
+            <span className="bg-[#393E46] text-[#FFD369] p-2 rounded-full mr-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -291,10 +291,10 @@ function Home() {
           </h2>
 
           {blogs.length === 0 ? (
-            <div className="bg-white rounded-xl shadow-md p-10 text-center">
+            <div className="bg-[#393E46] rounded-xl shadow-md p-10 text-center">
               <div className="flex justify-center mb-4">
                 <svg
-                  className="h-16 w-16 text-gray-400"
+                  className="h-16 w-16 text-[#6c7884]"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -308,10 +308,10 @@ function Home() {
                   />
                 </svg>
               </div>
-              <p className="text-gray-500 mb-2 text-lg font-medium">
+              <p className="text-[#EEEEEE] mb-2 text-lg font-medium">
                 No blogs found
               </p>
-              <p className="text-gray-400">
+              <p className="text-[#a0a8b1]">
                 Add your first blog above! <br />
                 If you're not logged in, you won't see your existing blogs.
               </p>
@@ -321,21 +321,21 @@ function Home() {
               {blogs.map((blog) => (
                 <div
                   key={blog._id}
-                  className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                  className="bg-[#393E46] rounded-xl shadow-md p-6 border border-[#4a545f] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                 >
                   {editingId === blog._id ? (
                     <div className="space-y-4">
                       <div>
                         <label
                           htmlFor="edit-subject"
-                          className="block text-sm font-medium text-gray-700 mb-1"
+                          className="block text-sm font-medium text-[#EEEEEE] mb-1"
                         >
                           Subject
                         </label>
                         <input
                           id="edit-subject"
                           type="text"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+                          className="w-full px-4 py-3 border border-[#222831] bg-[#2d333d] text-[#EEEEEE] rounded-lg focus:ring-2 focus:ring-[#FFD369] focus:border-[#FFD369] transition-colors"
                           value={editedSubject}
                           onChange={(e) => setEditedSubject(e.target.value)}
                         />
@@ -343,26 +343,26 @@ function Home() {
                       <div>
                         <label
                           htmlFor="edit-content"
-                          className="block text-sm font-medium text-gray-700 mb-1"
+                          className="block text-sm font-medium text-[#EEEEEE] mb-1"
                         >
                           Content
                         </label>
                         <textarea
                           id="edit-content"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors h-32"
+                          className="w-full px-4 py-3 border border-[#222831] bg-[#2d333d] text-[#EEEEEE] rounded-lg focus:ring-2 focus:ring-[#FFD369] focus:border-[#FFD369] transition-colors h-32"
                           value={editedContent}
                           onChange={(e) => setEditedContent(e.target.value)}
                         />
                       </div>
                       <div className="flex justify-end space-x-3 pt-2">
                         <button
-                          className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+                          className="px-4 py-2 bg-[#222831] text-[#EEEEEE] rounded-lg hover:bg-[#2a303a] transition-colors font-medium"
                           onClick={cancelEditing}
                         >
                           Cancel
                         </button>
                         <button
-                          className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium shadow-sm"
+                          className="px-4 py-2 bg-[#FFD369] text-[#222831] rounded-lg hover:bg-[#e6be5f] transition-colors font-medium shadow-sm"
                           onClick={() => {
                             updateBlogSubject(blog._id);
                             updateBlogContent(blog._id);
@@ -375,32 +375,32 @@ function Home() {
                   ) : (
                     <>
                       <div className="flex justify-between items-center mb-4">
-                        <h3 className="text-xl font-bold text-indigo-800">
+                        <h3 className="text-xl font-bold text-[#FFD369]">
                           {blog.subject}
                         </h3>
                         <div className="flex space-x-3">
                           <button
-                            className="p-1.5 rounded-full bg-indigo-100 text-indigo-600 hover:bg-indigo-200 transition-colors"
+                            className="p-1.5 rounded-full bg-[#222831] text-[#FFD369] hover:bg-[#2a303a] transition-colors"
                             onClick={() => startEditing(blog)}
                           >
                             <Pencil size={18} />
                           </button>
                           <button
-                            className="p-1.5 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition-colors"
+                            className="p-1.5 rounded-full bg-[#442323] text-red-300 hover:bg-[#552a2a] transition-colors"
                             onClick={() => deleteBlog(blog._id)}
                           >
                             <BadgeMinus size={18} />
                           </button>
                         </div>
                       </div>
-                      <div className="prose prose-indigo max-w-none">
-                        <p className="text-gray-700 whitespace-pre-line leading-relaxed">
+                      <div className="prose prose-invert max-w-none">
+                        <p className="text-[#EEEEEE] whitespace-pre-line leading-relaxed">
                           {blog.content}
                         </p>
                       </div>
-                      <div className="mt-4 pt-4 border-t border-gray-100 flex items-center text-sm text-gray-500">
+                      <div className="mt-4 pt-4 border-t border-[#2a303a] flex items-center text-sm text-[#a0a8b1]">
                         <svg
-                          className="h-4 w-4 text-gray-400 mr-1"
+                          className="h-4 w-4 text-[#a0a8b1] mr-1"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"

@@ -31,11 +31,11 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
   };
 
   return (
-    <header className="sticky top-0 z-10 backdrop-blur-sm bg-white/70 shadow-sm">
+<header className="sticky top-0 z-10 backdrop-blur-sm bg-[#222831]/70 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 leading-tight">
+            <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#FFD369] to-[#EEEEEE] leading-tight">
               BlogApp
             </div>
           </div>
@@ -45,8 +45,8 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               to="/"
               className={`px-3 py-2 rounded-md font-medium transition-colors ${
                 isActive("/")
-                  ? "text-indigo-700 bg-indigo-50"
-                  : "text-gray-600 hover:text-indigo-600 hover:bg-gray-50"
+                  ? "text-[#FFD369] bg-[#393E46]"
+                  : "text-[#EEEEEE] hover:text-[#FFD369] hover:bg-[#393E46]"
               }`}
             >
               Home
@@ -55,8 +55,8 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               to="/about"
               className={`px-3 py-2 rounded-md font-medium transition-colors ${
                 isActive("/about")
-                  ? "text-indigo-700 bg-indigo-50"
-                  : "text-gray-600 hover:text-indigo-600 hover:bg-gray-50"
+                  ? "text-[#FFD369] bg-[#393E46]"
+                  : "text-[#EEEEEE] hover:text-[#FFD369] hover:bg-[#393E46]"
               }`}
             >
               About
@@ -65,22 +65,22 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               to="/profile"
               className={`px-3 py-2 rounded-md font-medium transition-colors ${
                 isActive("/profile")
-                  ? "text-indigo-700 bg-indigo-50"
-                  : "text-gray-600 hover:text-indigo-600 hover:bg-gray-50"
+                  ? "text-[#FFD369] bg-[#393E46]"
+                  : "text-[#EEEEEE] hover:text-[#FFD369] hover:bg-[#393E46]"
               }`}
             >
               Profile
             </Link>
 
-            <div className="flex space-x-3 pl-4 border-l border-gray-200">
+            <div className="flex space-x-3 pl-4 border-l border-[#393E46]">
               {!isLoggedIn ? (
                 <>
                   <Link
                     to="/login"
                     className={`px-4 py-2 rounded-md font-medium transition-all ${
                       isActive("/login")
-                        ? "bg-indigo-600 text-white shadow-md"
-                        : "text-indigo-600 hover:bg-indigo-50 border border-indigo-200"
+                        ? "bg-[#FFD369] text-[#222831] shadow-md"
+                        : "text-[#FFD369] hover:bg-[#393E46] border border-[#393E46]"
                     }`}
                   >
                     Login
@@ -89,8 +89,8 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
                     to="/signup"
                     className={`px-4 py-2 rounded-md font-medium transition-all ${
                       isActive("/signup")
-                        ? "bg-indigo-600 text-white shadow-md"
-                        : "bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm hover:shadow"
+                        ? "bg-[#FFD369] text-[#222831] shadow-md"
+                        : "bg-[#FFD369] text-[#222831] hover:bg-[#FFD369]/90 shadow-sm hover:shadow"
                     }`}
                   >
                     Sign Up
@@ -99,7 +99,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               ) : (
                 <button
                   onClick={handleLogout}
-                  className="px-3 py-2 rounded-md font-medium transition-all cursor-pointer hover:bg-indigo-600 hover:text-white text-indigo-600"
+                  className="px-3 py-2 rounded-md font-medium transition-all cursor-pointer hover:bg-[#FFD369] hover:text-[#222831] text-[#FFD369]"
                 >
                   Logout
                 </button>
@@ -110,7 +110,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-indigo-600 hover:text-indigo-800 hover:bg-indigo-50 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#FFD369] hover:text-[#EEEEEE] hover:bg-[#393E46] focus:outline-none"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
@@ -154,13 +154,13 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
 
       {isMobileMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-[#222831] shadow-lg rounded-b-lg">
             <Link
               to="/"
               className={`block px-3 py-2 rounded-md font-medium ${
                 isActive("/")
-                  ? "text-indigo-700 bg-indigo-50"
-                  : "text-gray-600 hover:text-indigo-600 hover:bg-gray-50"
+                  ? "text-[#FFD369] bg-[#393E46]"
+                  : "text-[#EEEEEE] hover:text-[#FFD369] hover:bg-[#393E46]"
               }`}
             >
               Home
@@ -169,8 +169,8 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               to="/about"
               className={`block px-3 py-2 rounded-md font-medium ${
                 isActive("/about")
-                  ? "text-indigo-700 bg-indigo-50"
-                  : "text-gray-600 hover:text-indigo-600 hover:bg-gray-50"
+                  ? "text-[#FFD369] bg-[#393E46]"
+                  : "text-[#EEEEEE] hover:text-[#FFD369] hover:bg-[#393E46]"
               }`}
             >
               About
@@ -179,24 +179,24 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               to="/profile"
               className={`block px-3 py-2 rounded-md font-medium ${
                 isActive("/profile")
-                  ? "text-indigo-700 bg-indigo-50"
-                  : "text-gray-600 hover:text-indigo-600 hover:bg-gray-50"
+                  ? "text-[#FFD369] bg-[#393E46]"
+                  : "text-[#EEEEEE] hover:text-[#FFD369] hover:bg-[#393E46]"
               }`}
             >
               Profile
             </Link>
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-[#393E46]">
               {!isLoggedIn ? (
                 <>
                   <Link
                     to="/login"
-                    className="block w-full px-4 py-2 mb-2 text-center rounded-md font-medium text-indigo-600 border border-indigo-200 hover:bg-indigo-50"
+                    className="block w-full px-4 py-2 mb-2 text-center rounded-md font-medium text-[#FFD369] border border-[#393E46] hover:bg-[#393E46]"
                   >
                     Login
                   </Link>
                   <Link
                     to="/signup"
-                    className="block w-full px-4 py-2 text-center rounded-md font-medium bg-indigo-600 text-white hover:bg-indigo-700"
+                    className="block w-full px-4 py-2 text-center rounded-md font-medium bg-[#FFD369] text-[#222831] hover:bg-[#FFD369]/90"
                   >
                     Sign Up
                   </Link>
@@ -204,7 +204,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
               ) : (
                 <button
                   onClick={handleLogout}
-                  className="block w-full px-4 py-2 text-center rounded-md font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all"
+                  className="block w-full px-4 py-2 text-center rounded-md font-medium text-[#FFD369] hover:bg-[#FFD369] hover:text-[#222831] transition-all"
                 >
                   Logout
                 </button>
