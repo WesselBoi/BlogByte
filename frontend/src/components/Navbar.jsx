@@ -22,7 +22,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
   }, [setIsLoggedIn]);
 
   async function handleLogout() {
-    await fetch(`${VITE_BASE_URL}user/logout`, {
+    await fetch(`${import.meta.env.VITE_BASE_URL}user/logout`, {
       method: "POST",
       credentials: "include",
     });
