@@ -27,7 +27,6 @@ function Home() {
       });
       if (response.status === 401) {
         setError("You must be logged in to view or add blogs.");
-        console.clear()
         setBlogs([]);
         return;
       }
