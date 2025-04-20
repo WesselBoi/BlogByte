@@ -94,15 +94,32 @@ function fetchProfile(req,res){
 }
 
 
-function handleUserLogout(req,res) {
-    try {
-        // Clear the JWT cookie
-        res.clearCookie('uid');
-        return res.status(200).json({ message: 'Logged out successfully' });
-      } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Server error' });
-      }
+// function handleUserLogout(req,res) {
+//     try {
+//         // Clear the JWT cookie
+//         res.clearCookie('uid');
+//         return res.status(200).json({ message: 'Logged out successfully' });
+//       } catch (err) {
+//         console.error(err);
+//         res.status(500).json({ message: 'Server error' });
+//       }
+// }
+
+
+function handleUserLogout(req, res) {
+  try {
+      // Clear the JWT cookie with the same options used when setting it
+      res.clearCookie('uid', {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production', // true in production
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+      });
+      
+      return res.status(200).json({ message: 'Logged out successfully' });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Server error' });
+  }
 }
 
 
