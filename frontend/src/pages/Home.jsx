@@ -25,13 +25,22 @@ function Home() {
       const response = await fetch("http://localhost:8000/blogs", {
         credentials: "include",
       });
+      if (response.status === 401) {
+        setError("You must be logged in to view blogs.");
+        console.clear()
+        setBlogs([]);
+        return;
+      }
       const data = await response.json();
       if (response.ok) {
         setBlogs([...data]);
+        setError("");
       } else {
-        console.error("Error fetching blogs:", data);
+        setError("Error fetching blogs");
+        console.log("Error fetching blogs:", data);
       }
     } catch (err) {
+      setError("Error fetching blogs");
       console.error("Error fetching blogs:", err);
     }
   }

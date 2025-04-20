@@ -51,7 +51,7 @@ function Signup() {
       
       setTimeout(() => {
         navigate('/login');
-      }, 5000); // Wait 2 seconds before navigating
+      }, 2000); 
     } catch (err) {
       setError('Signup failed. Please try again.');
       console.error('Signup error:', err);

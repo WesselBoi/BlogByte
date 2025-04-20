@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import About from './pages/About';
+import About from './pages/ABout';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
-import Admin from './pages/Admin';
+// import Admin from './pages/Admin';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
