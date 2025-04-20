@@ -8,7 +8,7 @@ function Profile() {
     async function fetchProfileDetails() {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:8000/user/profile", {
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}user/profile`, {
           credentials: "include",
         });
   

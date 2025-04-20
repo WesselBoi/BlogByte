@@ -22,11 +22,11 @@ function Home() {
 
   async function fetchBlogs() {
     try {
-      const response = await fetch("http://localhost:8000/blogs", {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}blogs`, {
         credentials: "include",
       });
       if (response.status === 401) {
-        setError("You must be logged in to view blogs.");
+        setError("You must be logged in to view or add blogs.");
         console.clear()
         setBlogs([]);
         return;
@@ -52,7 +52,7 @@ function Home() {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/blogs/add", {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}blogs/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ function Home() {
 
   async function deleteBlog(id) {
     try {
-      const response = await fetch(`http://localhost:8000/blogs/delete/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}blogs/delete/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -134,7 +134,7 @@ function Home() {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/blogs/update/subject/${id}`,
+        `${import.meta.env.VITE_BASE_URL}blogs/update/subject/${id}`,
         {
           method: "PATCH",
           headers: {
@@ -177,7 +177,7 @@ function Home() {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/blogs/update/content/${id}`,
+        `${import.meta.env.VITE_BASE_URL}blogs/update/content/${id}`,
         {
           method: "PATCH",
           headers: {

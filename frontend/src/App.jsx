@@ -22,7 +22,7 @@ function App() {
     } else {
       async function checkLoginStatus() {
         try {
-          const res = await fetch('http://localhost:8000/user/check', {
+          const res = await fetch(`${import.meta.env.VITE_BASE_URL}user/check`, {
             method: 'GET',
             credentials: 'include',
           });

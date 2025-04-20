@@ -6,7 +6,7 @@ const {restrictToLoggedinUserOnly} = require("./middlewares/auth")
 const connectToMongoDb = require('./connection');
 const cookieParser = require('cookie-parser');
 
-const PORT = 8000
+const PORT = process.env.PORT
 require('dotenv').config();
 const mongoUrl = process.env.MONGO_URL;
 
@@ -17,7 +17,7 @@ connectToMongoDb(mongoUrl)
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:5173', 
+    origin: process.env.CLIENT_URL, 
     credentials: true 
 }))
 

@@ -20,7 +20,7 @@ function Signup() {
         return;
       }
       
-      const response = await fetch('http://localhost:8000/user/', {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}user`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
