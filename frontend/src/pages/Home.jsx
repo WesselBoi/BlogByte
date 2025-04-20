@@ -88,7 +88,17 @@ function Home() {
       if (!response.ok) {
         throw new Error("Failed to delete blog");
       }
-
+      toast.success('Blog deleted!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+        });
       fetchBlogs();
     } catch (err) {
       console.error("Error deleting blog:", err);
@@ -132,6 +142,17 @@ function Home() {
 
       setEditingId(null);
       setError("");
+      toast.success('Change successfull', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+        });
       await fetchBlogs();
     } catch (err) {
       setError("Could not update blog subject, try again later");
