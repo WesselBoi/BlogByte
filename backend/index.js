@@ -27,6 +27,9 @@ app.use(cookieParser());
 
 app.use("/blogs" , restrictToLoggedinUserOnly , blogRoutes)
 app.use("/user" , userRoutes)
+app.get("/" , (req,res) =>{
+    return res.end('backend is running')
+})
 
 app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`))
 
