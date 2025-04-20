@@ -17,7 +17,10 @@ connectToMongoDb(mongoUrl)
 const app = express();
 
 app.use(cors({
-    origin: process.env.CLIENT_URL, 
+    origin: [
+        'http://localhost:5173', 
+        'https://blog-byte-u3g4.vercel.app'
+      ],
     credentials: true 
 }))
 
