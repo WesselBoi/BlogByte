@@ -16,9 +16,16 @@ connectToMongoDb(mongoUrl)
 
 const app = express();
 
+// app.use(cors({
+//     origin: process.env.CLIENT_URL,
+//     credentials: true 
+// }))
+
+
 app.use(cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true 
+    origin: process.env.CLIENT_URL || 'https://blogbyte-wuzs.onrender.com',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }))
 
 app.use(express.json())

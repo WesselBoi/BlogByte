@@ -49,7 +49,14 @@ async function handleUserLogin(req, res) {
         }
 
         const token = setUser(user)
-        res.cookie("uid" , token)
+        res.cookie("uid", token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production', // true in production
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+          maxAge: 24 * 60 * 60 * 1000 // 1 day
+      })
+
+        // res.cookie("uid" , token)
 
         return res.status(200).json({ 
             msg: "Logged in successfully",
